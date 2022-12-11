@@ -1,18 +1,35 @@
 package Transport;
 
+import Drive.C;
+
 public  class Bus extends Transport implements Competing {
     private final Integer pitStopTime;
+    private Capacity capacity;
     private final Integer maxSpeed;
     private final Integer bestLapTime;
-    private  Integer bestLapTisme;
 
-    public Bus(String make, String model, double engineCapacity,
-               Integer pitStopTime,Integer maxSpeed,Integer bestLapTime) {
+    public Bus(String make,
+               String model,
+               double engineCapacity,
+               Integer pitStopTime,
+               Integer maxSpeed,
+               Integer bestLapTime,
+               Capacity capacity) {
         super(make, model, engineCapacity);
         this.bestLapTime = Validate.validateNumber(bestLapTime);
         this.pitStopTime = Validate.validateNumber(pitStopTime);
         this.maxSpeed = Validate.validateNumber(maxSpeed);
+   this.capacity=capacity;
     }
+
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Capacity capacity) {
+        this.capacity = capacity;
+    }
+
     @Override
     public void getPitStop() {
         System.out.println(" Пит стоп:"+pitStopTime);
@@ -36,6 +53,15 @@ public  class Bus extends Transport implements Competing {
     void stopMove() {
         System.out.println(" автобус закончил движение");
 
+    }
+
+    @Override
+    public void printType() {
+        if (capacity==null){
+            System.out.println("Данных не достаточно");
+        }else {
+            System.out.println("Вместимость автобуса от  "+ capacity.getFrom()+" до "+capacity.getTo());
+        }
     }
 }
 

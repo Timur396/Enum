@@ -37,6 +37,7 @@ public abstract class Transport {
     public void setEngineCapacity(double engineCapacity) {
         this.engineCapacity = engineCapacity;
     }
+    public abstract void printType();
 }
 
 
