@@ -63,6 +63,12 @@ public  class Bus extends Transport implements Competing {
             System.out.println("Вместимость автобуса от  "+ capacity.getFrom()+" до "+capacity.getTo());
         }
     }
+
+    @Override
+    public boolean service() {
+        System.out.println(" Автобус "+ getModel()+ "в диагностике не требуется");
+        return false;
+    }
 }
 
 

@@ -2,10 +2,15 @@
 package Transport;
 
 public class Truck extends Transport implements Competing{
-    private final Integer pitStopTime;
+    private  Integer pitStopTime;
+
     private Weight weight;
-    private final Integer maxSpeed;
-    private final Integer bestLapTime;
+    private  Integer maxSpeed;
+    private  Integer bestLapTime;
+    public Truck(String make, String model, double engineCapacity, Weight weight) {
+        super(make, model, engineCapacity);
+        this.weight = weight;
+    }
     public Truck(String make,
                  String model,
                  double engineCapacity,
@@ -61,6 +66,10 @@ public class Truck extends Transport implements Competing{
     public void getMaxSpeed() {
         System.out.println(" Максимальная скорость"+ maxSpeed);
 
+    }
+    @Override
+    public boolean service() {
+        return Math.random()>0.9;
     }
 }
 

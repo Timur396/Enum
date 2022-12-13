@@ -8,13 +8,13 @@ public abstract class Driver <T extends Transport>{
     private final String name;
     private final boolean license;
     private final Integer experience;
-    private final T car;
+    private  T car;
 
     public Driver(String name, boolean license, Integer experience,T car) {
         this.name = validationString(name);
         this.license = license;
         this.experience = validateNumber(experience);
-        this.car=car;
+       setCar(car); ;
     }
 
     public String getName() {
@@ -33,5 +33,14 @@ public abstract class Driver <T extends Transport>{
     abstract String stop();
     abstract String refuel();
 
+    public T getCar() {
+        return car;
+    }
 
+    public void setCar(T car) {
+        if (car == null) {
+            throw new IllegalArgumentException(" Необходимо указать категорию прав");
+        }
+        this.car = car;
+    }
 }

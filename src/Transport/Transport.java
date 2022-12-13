@@ -38,6 +38,7 @@ public abstract class Transport {
         this.engineCapacity = engineCapacity;
     }
     public abstract void printType();
+    public abstract boolean service();
 }
 
 
